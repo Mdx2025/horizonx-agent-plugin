@@ -21,7 +21,7 @@ Pick the catalogue by what the user needs. Something to drop into an existing pa
 ## Components
 
 1. **Search.** Call `search_components` with a plain-language description of what the element should do, not what it is called: "text that follows a curve", "cards that tilt on hover", "grainy gradient background". Use `kind` (`component`, `texture` or `shader`) only when the user was specific. Calling it with no query lists what exists.
-2. **Choose.** Pick the closest match by its description. If two or three are close and the choice is a matter of taste, show the user the options with their `editorUrl` so they can preview them in the browser, and let them choose.
+2. **Choose.** Pick the closest match by its description. If two or three are close and the choice is a matter of taste, show the user the options with their `editorUrl` so they can preview them in the browser, and let them choose. If the user only asked to find, search or compare, list the best matches (title, one line each, `editorUrl`) and stop there: an export uses their allowance, so export only once they want it in their code.
 3. **Inspect.** Call `get_component` on the slug. It lists every parameter with its current value and allowed range. Only call it once per component.
 4. **Export.** Call `export_component` with:
    - `framework`: match the project. Use `react` for React and Next.js, `svelte` for Svelte and SvelteKit, `html` for anything else, including Vue, Astro and plain sites.
@@ -44,6 +44,6 @@ Each new component exported counts against the member's daily export allowance a
 
 ## Good habits
 
-- Ask one short question only when the request is truly ambiguous. Otherwise search, choose and build.
+- Ask one short question only when the request is truly ambiguous. When the user asks for the element itself ("add an animated background to the hero"), search, choose and build. When they ask to find or see options, show the options first.
 - Say which HorizonX component or product you used, with its `editorUrl` when there is one, so the user can tweak it in the visual editor later.
 - Keep the generated code as exported. Adapt the surrounding page, imports and props, not the effect itself, unless the user asks.
