@@ -55,6 +55,7 @@ gemini extensions install https://github.com/Mdx2025/horizonx-agent-plugin
 .agents/plugins/marketplace.json     Codex marketplace
 .cursor-plugin/marketplace.json      Cursor marketplace (points at plugins/horizonx)
 gemini-extension.json                Gemini CLI extension (MCP server only)
+server.json                          Official MCP Registry entry
 plugins/horizonx/
   plugin.json, mcp.json              Agent Plugins manifest (Codex, Cursor, OpenAI listing and review cases)
   .claude-plugin/plugin.json, .mcp.json   Claude Code manifest
