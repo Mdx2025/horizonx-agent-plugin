@@ -32,6 +32,12 @@ codex mcp login horizonx
 
 Cursor reads this plugin as an [Agent Plugin](https://agent-plugins.org). Until it is listed in the Cursor Marketplace, copy `plugins/horizonx` to `~/.cursor/plugins/local/horizonx`, reload the window and sign in when Cursor asks. To add only the MCP server, use the **Add to Cursor** button on [horizonx.so/mcp](https://horizonx.so/mcp).
 
+### Gemini CLI
+
+```
+gemini extensions install https://github.com/Mdx2025/horizonx-agent-plugin
+```
+
 ### Any other MCP client
 
 [horizonx.so/mcp](https://horizonx.so/mcp) has the setup for VS Code, Windsurf, Gemini CLI, Claude.ai, ChatGPT and others.
@@ -47,10 +53,13 @@ Cursor reads this plugin as an [Agent Plugin](https://agent-plugins.org). Until 
 ```
 .claude-plugin/marketplace.json      Claude Code marketplace
 .agents/plugins/marketplace.json     Codex marketplace
+.cursor-plugin/marketplace.json      Cursor marketplace (points at plugins/horizonx)
+gemini-extension.json                Gemini CLI extension (MCP server only)
 plugins/horizonx/
-  plugin.json, mcp.json              Agent Plugins manifest (Codex, Cursor)
+  plugin.json, mcp.json              Agent Plugins manifest (Codex, Cursor, OpenAI listing and review cases)
   .claude-plugin/plugin.json, .mcp.json   Claude Code manifest
   skills/horizonx/SKILL.md           The skill
+  README.md                          Tools and the data the plugin sends
   assets/icon.png
 ```
 

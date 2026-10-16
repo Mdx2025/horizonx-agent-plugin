@@ -1,0 +1,20 @@
+{
+  "name": "horizonx",
+  "owner": {
+    "name": "HorizonX",
+    "email": "support@horizonx.so"
+  },
+  "metadata": {
+    "description": "The HorizonX plugin for Cursor: its MCP server and the skill that uses it."
+  },
+  "plugins": [
+    {
+      "name": "horizonx",
+      "source": "plugins/horizonx",
+      "description": "Search HorizonX and add its animated components, textures, shaders, templates and UI kits to your project.",
+      "logo": "assets/icon.png",
+      "category": "design",
+      "homepage": "https://horizonx.so/mcp"
+    }
+  ]
+}

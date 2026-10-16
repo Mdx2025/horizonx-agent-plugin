@@ -1,0 +1,10 @@
+{
+  "name": "horizonx",
+  "version": "0.1.0",
+  "description": "Search HorizonX and add its animated components, textures, shaders, templates and UI kits to your project.",
+  "mcpServers": {
+    "horizonx": {
+      "httpUrl": "https://horizonx.so/api/mcp"
+    }
+  }
+}
