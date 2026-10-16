@@ -1,0 +1,20 @@
+{
+  "name": "horizonx",
+  "interface": {
+    "displayName": "HorizonX"
+  },
+  "plugins": [
+    {
+      "name": "horizonx",
+      "source": {
+        "source": "local",
+        "path": "./plugins/horizonx"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    }
+  ]
+}
