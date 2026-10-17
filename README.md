@@ -47,6 +47,7 @@ gemini extensions install https://github.com/Mdx2025/horizonx-agent-plugin
 - "Use HorizonX to add an animated hero background to this page."
 - "Use HorizonX to find a before-and-after image slider and add it as a React component."
 - "Use HorizonX to find a SaaS landing page template."
+- "Use HorizonX to build this dashboard in the style of a HorizonX design system, following its DESIGN.md."
 
 ## Layout
 

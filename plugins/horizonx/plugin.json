@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "horizonx",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Search HorizonX and add its animated components, textures, shaders, templates and UI kits to your project.",
   "author": {
     "name": "HorizonX",
@@ -77,6 +77,12 @@
               "prompt": "Use HorizonX to get the files for the first template you found.",
               "tools_triggered": "get_library_item, download_library_item",
               "expected_behavior": "Shows the product's details, then returns download links for its files that expire in about five minutes. The first download of a product that day uses one download from the member's plan."
+            },
+            {
+              "description": "Reads a design system's DESIGN.md to build UI in its style.",
+              "prompt": "Use HorizonX to find a design system for a fintech dashboard and give me its DESIGN.md.",
+              "tools_triggered": "search_library, get_design_md",
+              "expected_behavior": "Finds a matching design system and returns its DESIGN.md: color, typography, spacing and component tokens with the rules for applying them. It does not use a download."
             }
           ],
           "negative": [

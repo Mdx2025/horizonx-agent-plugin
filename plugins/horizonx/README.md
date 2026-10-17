@@ -5,7 +5,7 @@ Search [HorizonX](https://horizonx.so) in plain language and add the result to y
 This plugin contains:
 
 - **The HorizonX MCP server** at `https://horizonx.so/api/mcp`. You sign in with your HorizonX account (OAuth) the first time your agent uses it. An active HorizonX membership is required.
-- **The `horizonx` skill**, which tells the agent how to search, inspect a component's parameters, export it in your project's framework and place the file next to similar components.
+- **The `horizonx` skill**, which tells the agent how to search, inspect a component's parameters, export it in your project's framework and place the file next to similar components, and how to build UI that follows a HorizonX design system.
 
 ## Tools
 
@@ -17,6 +17,7 @@ This plugin contains:
 | `search_library` | Searches templates, UI kits and design systems | No |
 | `get_library_item` | Shows one Library product | No |
 | `download_library_item` | Returns short-lived download links | Uses one download the first time that day |
+| `get_design_md` | Returns a design system's DESIGN.md: its tokens and the rules for using them | No |
 
 ## Data the plugin sends
 
