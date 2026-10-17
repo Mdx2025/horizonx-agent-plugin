@@ -42,6 +42,13 @@ Each new component exported counts against the member's daily export allowance a
 2. **Check.** Call `get_library_item` on the slug. It shows the format (code, Figma or media), what is included and the file list, and it does not use a download. Confirm the format fits: a Figma file cannot be dropped into a codebase.
 3. **Download.** Call `download_library_item` only when the user wants the files. It spends one download from the member's plan limit, unless the same product was already downloaded that day. The links expire in about five minutes, so fetch them immediately, for example with `curl -L -o <file> "<url>"`, then unpack them where the user asked.
 
+### Design systems
+
+When the user wants to build UI in the style of a HorizonX design system, call `get_design_md` on its slug instead of downloading it. The first text block names the kit and its version; the second is the DESIGN.md itself: colour, typography, spacing, radius and component tokens as YAML front matter, followed by the rules for applying them. It does not use a download.
+
+- Save it as `DESIGN.md` at the project root unless the user wants it elsewhere, then follow its tokens and rules in the code you write. Map the tokens onto the project's existing theme (CSS variables, Tailwind config) rather than hard-coding values.
+- If the server answers that the product has no design tokens (Figma-only kits), say so and offer `get_library_item` and the download instead.
+
 ## Good habits
 
 - Ask one short question only when the request is truly ambiguous. When the user asks for the element itself ("add an animated background to the hero"), search, choose and build. When they ask to find or see options, show the options first.
