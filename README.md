@@ -38,6 +38,10 @@ Cursor reads this plugin as an [Agent Plugin](https://agent-plugins.org). Until 
 gemini extensions install https://github.com/Mdx2025/horizonx-agent-plugin
 ```
 
+### Claude.ai and ChatGPT
+
+HorizonX is listed in the [Claude connectors directory](https://claude.ai/directory/horizonx) and in [ChatGPT apps](https://chatgpt.com/plugins/plugin_asdk_app_6ad2d15c798481919ffe2ec242b81cf3). Open the listing, connect it and sign in with your HorizonX account.
+
 ### Any other MCP client
 
 [horizonx.so/mcp](https://horizonx.so/mcp) has the setup for VS Code, Windsurf, Gemini CLI, Claude.ai, ChatGPT and others.

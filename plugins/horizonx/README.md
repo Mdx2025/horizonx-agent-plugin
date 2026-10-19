@@ -7,6 +7,8 @@ This plugin contains:
 - **The HorizonX MCP server** at `https://horizonx.so/api/mcp`. You sign in with your HorizonX account (OAuth) the first time your agent uses it. An active HorizonX membership is required.
 - **The `horizonx` skill**, which tells the agent how to search, inspect a component's parameters, export it in your project's framework and place the file next to similar components, and how to build UI that follows a HorizonX design system.
 
+To use HorizonX in a chat app instead, it is listed in the [Claude connectors directory](https://claude.ai/directory/horizonx) and in [ChatGPT apps](https://chatgpt.com/plugins/plugin_asdk_app_6ad2d15c798481919ffe2ec242b81cf3).
+
 ## Tools
 
 | Tool | What it does | Changes anything? |
