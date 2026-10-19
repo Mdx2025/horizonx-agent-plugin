@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "horizonx",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Search HorizonX and add its animated components, textures, shaders, templates and UI kits to your project.",
   "author": {
     "name": "HorizonX",
@@ -23,7 +23,7 @@
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "HorizonX",
+        "displayName": "HorizonX — Premium UI Library",
         "shortDescription": "Animated UI for your code",
         "longDescription": "Search the HorizonX catalogue in plain language and drop the result straight into your code: animated UI components, image textures and WebGL shaders exported as HTML, Svelte or React with no dependencies, plus landing pages, UI kits and design systems as files. Sign in with your HorizonX account.",
         "developerName": "HorizonX",
