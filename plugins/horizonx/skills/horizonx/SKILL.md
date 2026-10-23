@@ -1,14 +1,14 @@
 ---
 name: horizonx
-description: Find and add HorizonX animated UI components, image textures, WebGL shaders, landing page templates, UI kits and design systems to the user's project through the HorizonX MCP server. Use when the user asks for a visual effect, an animated section, a shader or texture background, a ready-made landing page or template, or mentions HorizonX.
+description: Find and add HorizonX animated UI components, device mockups, image textures, WebGL shaders, landing page templates, UI kits, design systems, 3D models and icon libraries to the user's project through the HorizonX MCP server. Use when the user asks for a visual effect, an animated section, a shader or texture background, their design shown on a phone or laptop, a ready-made landing page or template, a 3D model, an icon set, or mentions HorizonX.
 ---
 
 # HorizonX
 
 HorizonX is a catalogue of production-ready front-end work. The `horizonx` MCP server gives you two catalogues:
 
-- **Components**: animated UI components, image textures and WebGL shaders. They are generated as code you can paste: a self-contained HTML document, or one Svelte or React component with no runtime dependencies.
-- **Library**: ready-made products delivered as files: landing pages and site templates, UI kits, design systems, and image and video assets.
+- **Components**: animated UI components, device and product mockups, image textures and WebGL shaders. They are generated as code you can paste: a self-contained HTML document, or one Svelte or React component.
+- **Library**: ready-made products delivered as files: landing pages and site templates, UI kits, design systems, images, videos, 3D models (glTF) and open-source icon libraries (SVG). Some deployments also list UI sound effects; the server's own instructions say when they do.
 
 Pick the catalogue by what the user needs. Something to drop into an existing page ("a tilt-on-hover card", "an ASCII effect on the hero photo") is a component. A whole page, kit or asset pack is a Library product.
 
@@ -20,17 +20,21 @@ Pick the catalogue by what the user needs. Something to drop into an existing pa
 
 ## Components
 
-1. **Search.** Call `search_components` with a plain-language description of what the element should do, not what it is called: "text that follows a curve", "cards that tilt on hover", "grainy gradient background". Use `kind` (`component`, `texture` or `shader`) only when the user was specific. Calling it with no query lists what exists.
+1. **Search.** Call `search_components` with a plain-language description of what the element should do, not what it is called: "text that follows a curve", "cards that tilt on hover", "grainy gradient background". Use `kind` (`component`, `texture`, `mockup` or `shader`) only when the user was specific. Calling it with no query lists what exists.
 2. **Choose.** Pick the closest match by its description. If two or three are close and the choice is a matter of taste, show the user the options with their `editorUrl` so they can preview them in the browser, and let them choose. If the user only asked to find, search or compare, list the best matches (title, one line each, `editorUrl`) and stop there: an export uses their allowance, so export only once they want it in their code.
 3. **Inspect.** Call `get_component` on the slug. It lists every parameter with its current value and allowed range. Only call it once per component.
 4. **Export.** Call `export_component` with:
    - `framework`: match the project. Use `react` for React and Next.js, `svelte` for Svelte and SvelteKit, `html` for anything else, including Vue, Astro and plain sites.
    - `parameters`: only keys that `get_component` listed, and only when the user asked for something different from the default (colours, speed, text, sizes). Unknown keys and out-of-range values are dropped silently, so check the names.
-5. **Place it.** The first text block is the file name and a usage hint; the second is the code. Write the code into the project where similar components live (look for `components/`, `src/lib/components/` or similar), keep the file name unless the project has its own convention, and import it where the user asked for it. The code has no dependencies: do not install packages for it.
+5. **Place it.** The first text block is the file name and a usage hint; the second is the code. Write the code into the project where similar components live (look for `components/`, `src/lib/components/` or similar), keep the file name unless the project has its own convention, and import it where the user asked for it. Apart from mockups (below), the code has no dependencies: do not install packages for it.
 
 ### Textures
 
 A texture applies a look to one image. Pass the user's image through the `images` parameter as a root-relative path or an absolute URL. The image must be served from the same origin as the page or with CORS headers, because the effect reads its pixels. Without it, the sample image is used, which is rarely what the user wants.
+
+### Mockups
+
+A mockup shows the user's design on a device or product: a phone, laptop, tablet, watch or card. Search with `kind: mockup`, then pass the user's screenshot or screen recording through the `images` parameter, with the same origin rules as a texture. Without it, the mockup shows HorizonX's sample screen. The export is an interactive embed; it may load the artwork, the 3D model and the renderer from HorizonX at runtime, so do not inline or install those yourself. If the user wants a still image or a video (PNG, JPG or MP4), point them to the mockup's `editorUrl`: renders are made in the browser editor, not through the server.
 
 ### Export limits
 
@@ -38,9 +42,13 @@ Each new component exported counts against the member's daily export allowance a
 
 ## Library
 
-1. **Search.** Call `search_library` with what the user wants ("SaaS landing page", "finance dashboard UI kit"). `category` is optional, for example `Code`, `UI/UX`, `Assets` or `Landing Pages`.
+1. **Search.** Call `search_library` with what the user wants ("SaaS landing page", "finance dashboard UI kit", "3D model of a chair"). `category` is optional: `Code`, `UI/UX`, `Assets` or `Landing Pages`, or one Assets section: `3D`, `Icons`, `Imagery`, `Videos`, and `Sounds` where the server lists it. Use those exact names; capitals do not matter.
 2. **Check.** Call `get_library_item` on the slug. It shows the format (code, Figma or media), what is included and the file list, and it does not use a download. Confirm the format fits: a Figma file cannot be dropped into a codebase.
 3. **Download.** Call `download_library_item` only when the user wants the files. It spends one download from the member's plan limit, unless the same product was already downloaded that day. The links expire in about five minutes, so fetch them immediately, for example with `curl -L -o <file> "<url>"`, then unpack them where the user asked.
+
+### Open-source assets
+
+Icon libraries, and 3D models or sounds from outside authors, are open-source works HorizonX ships unchanged. `get_library_item` names the licence and the download includes the licence file. Keep that file with the assets in the project, and mention the licence when you add them. HorizonX's own icon packs and models carry the HorizonX licence instead.
 
 ### Design systems
 
