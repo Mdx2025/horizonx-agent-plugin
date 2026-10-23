@@ -1,6 +1,6 @@
 # HorizonX plugin for AI coding agents
 
-Search [HorizonX](https://horizonx.so) in plain language and drop the result straight into your code: animated UI components, image textures and WebGL shaders exported as HTML, Svelte or React with no dependencies, plus landing pages, UI kits and design systems as files.
+Search [HorizonX](https://horizonx.so) in plain language and drop the result straight into your code: animated UI components, device mockups, image textures and WebGL shaders exported as HTML, Svelte or React, plus landing pages, UI kits, design systems, 3D models and open-source icon libraries as files.
 
 The plugin bundles two things:
 

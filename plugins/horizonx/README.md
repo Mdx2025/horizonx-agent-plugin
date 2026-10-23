@@ -1,6 +1,6 @@
 # HorizonX
 
-Search [HorizonX](https://horizonx.so) in plain language and add the result to your project: animated UI components, image textures and WebGL shaders exported as HTML, Svelte or React with no runtime dependencies, plus landing page templates, UI kits and design systems from the HorizonX Library.
+Search [HorizonX](https://horizonx.so) in plain language and add the result to your project: animated UI components, device mockups, image textures and WebGL shaders exported as HTML, Svelte or React, plus landing page templates, UI kits, design systems, 3D models and open-source icon libraries from the HorizonX Library.
 
 This plugin contains:
 
@@ -13,10 +13,10 @@ To use HorizonX in a chat app instead, it is listed in the [Claude connectors di
 
 | Tool | What it does | Changes anything? |
 | --- | --- | --- |
-| `search_components` | Searches components, textures and shaders | No |
+| `search_components` | Searches components, mockups, textures and shaders | No |
 | `get_component` | Shows one component and its parameters | No |
 | `export_component` | Returns code for a component | Uses one daily export the first time |
-| `search_library` | Searches templates, UI kits and design systems | No |
+| `search_library` | Searches templates, UI kits, design systems, images, videos, 3D models and icon libraries | No |
 | `get_library_item` | Shows one Library product | No |
 | `download_library_item` | Returns short-lived download links | Uses one download the first time that day |
 | `get_design_md` | Returns a design system's DESIGN.md: its tokens and the rules for using them | No |

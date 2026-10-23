@@ -1,8 +1,8 @@
 {
   "name": "horizonx",
   "displayName": "HorizonX — Premium UI Library",
-  "version": "0.2.1",
-  "description": "Search HorizonX and add its animated components, textures, shaders, templates and UI kits to your project.",
+  "version": "0.3.0",
+  "description": "Search HorizonX and add its animated components, mockups, textures, shaders, templates, UI kits, 3D models and icon libraries to your project.",
   "author": {
     "name": "HorizonX",
     "email": "support@horizonx.so",
@@ -11,5 +11,5 @@
   "homepage": "https://horizonx.so/mcp",
   "repository": "https://github.com/Mdx2025/horizonx-agent-plugin",
   "license": "MIT",
-  "keywords": ["ui", "components", "animation", "shaders", "design", "landing-pages", "frontend"]
+  "keywords": ["ui", "components", "animation", "shaders", "design", "landing-pages", "mockups", "3d-models", "icons", "frontend"]
 }

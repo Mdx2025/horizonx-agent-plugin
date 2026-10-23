@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "horizonx",
-  "version": "0.2.1",
-  "description": "Search HorizonX and add its animated components, textures, shaders, templates and UI kits to your project.",
+  "version": "0.3.0",
+  "description": "Search HorizonX and add its animated components, mockups, textures, shaders, templates, UI kits, 3D models and icon libraries to your project.",
   "author": {
     "name": "HorizonX",
     "email": "support@horizonx.so",
@@ -18,6 +18,9 @@
     "shaders",
     "design",
     "landing-pages",
+    "mockups",
+    "3d-models",
+    "icons",
     "frontend"
   ],
   "extensions": {
@@ -25,7 +28,7 @@
       "interface": {
         "displayName": "HorizonX — Premium UI Library",
         "shortDescription": "Animated UI for your code",
-        "longDescription": "Search the HorizonX catalogue in plain language and drop the result straight into your code: animated UI components, image textures and WebGL shaders exported as HTML, Svelte or React with no dependencies, plus landing pages, UI kits and design systems as files. Sign in with your HorizonX account.",
+        "longDescription": "Search the HorizonX catalogue in plain language and drop the result straight into your code: animated UI components, device mockups, image textures and WebGL shaders exported as HTML, Svelte or React, plus landing pages, UI kits, design systems, 3D models and open-source icon libraries as files. Sign in with your HorizonX account.",
         "developerName": "HorizonX",
         "category": "Design",
         "capabilities": [
@@ -83,6 +86,24 @@
               "prompt": "Use HorizonX to find a design system for a fintech dashboard and give me its DESIGN.md.",
               "tools_triggered": "search_library, get_design_md",
               "expected_behavior": "Finds a matching design system and returns its DESIGN.md: color, typography, spacing and component tokens with the rules for applying them. It does not use a download."
+            },
+            {
+              "description": "Shows the user's screenshot on a phone mockup.",
+              "prompt": "Use HorizonX to put this app screenshot on a phone mockup and add it to the page as a Svelte component.",
+              "tools_triggered": "search_components, get_component, export_component",
+              "expected_behavior": "Finds a phone mockup, passes the screenshot through its images parameter and returns a Svelte embed. The first export of a mockup uses one of the member's daily exports."
+            },
+            {
+              "description": "Finds 3D models in the Library's Assets sections.",
+              "prompt": "Use HorizonX to find a 3D model of a chair.",
+              "tools_triggered": "search_library",
+              "expected_behavior": "Returns matching 3D models (glTF) from the Library with titles and a short description, without downloading anything."
+            },
+            {
+              "description": "Explains the licence of an open-source icon library before downloading it.",
+              "prompt": "Use HorizonX to find an open-source icon set and tell me its licence.",
+              "tools_triggered": "search_library, get_library_item",
+              "expected_behavior": "Finds an icon library in the Icons section and names its open-source licence from the product details. It does not use a download."
             }
           ],
           "negative": [
@@ -102,7 +123,7 @@
         }
       },
       "publication": {
-        "release_notes": "First release: search and export HorizonX components, textures and shaders as HTML, Svelte or React, and browse and download Library templates, UI kits and design systems."
+        "release_notes": "0.3.0: device and product mockups, 3D models and open-source icon libraries. First release: search and export HorizonX components, textures and shaders as HTML, Svelte or React, and browse and download Library templates, UI kits and design systems."
       }
     }
   }

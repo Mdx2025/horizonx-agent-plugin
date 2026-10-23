@@ -10,7 +10,7 @@
     {
       "name": "horizonx",
       "source": "./plugins/horizonx",
-      "description": "Search HorizonX and add its animated components, textures, shaders, templates and UI kits to your project.",
+      "description": "Search HorizonX and add its animated components, mockups, textures, shaders, templates, UI kits, 3D models and icon libraries to your project.",
       "category": "design",
       "homepage": "https://horizonx.so/mcp"
     }
