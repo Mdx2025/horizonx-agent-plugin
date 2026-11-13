@@ -1,13 +1,13 @@
 ---
 name: horizonx
-description: Find and add HorizonX animated UI components, device mockups, image textures, WebGL shaders, landing page templates, UI kits, design systems, 3D models and icon libraries to the user's project through the HorizonX MCP server. Use when the user asks for a visual effect, an animated section, a shader or texture background, their design shown on a phone or laptop, a ready-made landing page or template, a 3D model, an icon set, or mentions HorizonX.
+description: Find and add HorizonX animated UI components, device mockups, image textures, WebGL shaders, custom mouse cursors, landing page templates, UI kits, design systems, 3D models and icon libraries to the user's project through the HorizonX MCP server. Use when the user asks for a visual effect, an animated section, a shader or texture background, a custom cursor, their design shown on a phone or laptop, a ready-made landing page or template, a 3D model, an icon set, or mentions HorizonX.
 ---
 
 # HorizonX
 
 HorizonX is a catalogue of production-ready front-end work. The `horizonx` MCP server gives you two catalogues:
 
-- **Components**: animated UI components, device and product mockups, image textures and WebGL shaders. They are generated as code you can paste: a self-contained HTML document, or one Svelte or React component.
+- **Components**: animated UI components, device and product mockups, image textures, WebGL shaders and custom mouse cursors. They are generated as code you can paste: a self-contained HTML document (a single `<script>` or `<style>` block for a cursor), or one Svelte or React component.
 - **Library**: ready-made products delivered as files: landing pages and site templates, UI kits, design systems, images, videos, 3D models (glTF) and open-source icon libraries (SVG). Some deployments also list UI sound effects; the server's own instructions say when they do.
 
 Pick the catalogue by what the user needs. Something to drop into an existing page ("a tilt-on-hover card", "an ASCII effect on the hero photo") is a component. A whole page, kit or asset pack is a Library product.
@@ -20,7 +20,7 @@ Pick the catalogue by what the user needs. Something to drop into an existing pa
 
 ## Components
 
-1. **Search.** Call `search_components` with a plain-language description of what the element should do, not what it is called: "text that follows a curve", "cards that tilt on hover", "grainy gradient background". Use `kind` (`component`, `texture`, `mockup` or `shader`) only when the user was specific. Calling it with no query lists what exists.
+1. **Search.** Call `search_components` with a plain-language description of what the element should do, not what it is called: "text that follows a curve", "cards that tilt on hover", "grainy gradient background". Use `kind` (`component`, `texture`, `mockup`, `shader` or `cursor`) only when the user was specific. Calling it with no query lists what exists.
 2. **Choose.** Pick the closest match by its description. If two or three are close and the choice is a matter of taste, show the user the options with their `editorUrl` so they can preview them in the browser, and let them choose. If the user only asked to find, search or compare, list the best matches (title, one line each, `editorUrl`) and stop there: an export uses their allowance, so export only once they want it in their code.
 3. **Inspect.** Call `get_component` on the slug. It lists every parameter with its current value and allowed range. Only call it once per component.
 4. **Export.** Call `export_component` with:
@@ -35,6 +35,15 @@ A texture applies a look to one image. Pass the user's image through the `images
 ### Mockups
 
 A mockup shows the user's design on a device or product: a phone, laptop, tablet, watch or card. Search with `kind: mockup`, then pass the user's screenshot or screen recording through the `images` parameter, with the same origin rules as a texture. Without it, the mockup shows HorizonX's sample screen. The export is an interactive embed; it may load the artwork, the 3D model and the renderer from HorizonX at runtime, so do not inline or install those yourself. If the user wants a still image or a video (PNG, JPG or MP4), point them to the mockup's `editorUrl`: renders are made in the browser editor, not through the server.
+
+### Cursors
+
+A cursor replaces or follows the mouse pointer across the whole page: a trail, a spotlight, a squishy blob or a drawn arrow. Search with `kind: cursor` (slugs look like `cursor-squish`). It is not a component you place in a section:
+
+- **HTML**: the export is a single block, not a page. Paste a `<script>` block just before `</body>`, or a `<style>` block (drawn cursors) into `<head>`, once per site, in the shared layout or template if there is one.
+- **Svelte or React**: mount the component once in the root layout (`src/routes/+layout.svelte`, `app/layout.tsx`, `App.jsx` or similar), not inside a page.
+- It has no dependencies, never blocks clicks, only runs on mouse and trackpad (not touch), and removes everything it added when unmounted. Keep it as exported; do not add your own CSS to hide or restyle the pointer.
+- Use only one cursor per site. If the project already has a custom cursor, ask before replacing it.
 
 ### Export limits
 
